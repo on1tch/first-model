@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c861fa5-48ed-4aa6-82de-90315dde9d5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ML.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml_toolkit/arrays.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml_toolkit/data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml_toolkit/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml_toolkit/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml_toolkit/preprocessing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ml_toolkit/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_toolkit/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_toolkit/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_toolkit/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_toolkit/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +42,7 @@
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
 }</component>
   <component name="RunManager">

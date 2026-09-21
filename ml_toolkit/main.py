@@ -8,33 +8,32 @@ import numpy as np
 
 # --- 1. ГЕНЕРАЦИЯ ДАННЫХ ---
 # Создадим побольше точек для параболы (y = 2x^2 + x - 2 + шум)
-
-random.seed(42)
-num_points = 10000
-X_all = []
-y_all = []
-
-for _ in range(num_points):
-    x_i = random.uniform(-5.0, 5.0)
-    # Истинная формула: y = 2x^2 + 1x - 2 + шум
-    y_i = 2 * (x_i**2) + 1 * x_i - 2 + random.uniform(-1, 1)
-    X_all.append(x_i)
-    y_all.append(y_i)
-X_train_list, X_test_list, y_train_list, y_test_list = train_test_split(X_all, y_all)
-X_train = np.array(X_train_list)
-X_test = np.array(X_test_list)
-y_train = np.array(y_train_list)
-y_test = np.array(y_test_list)
-def calculate_mse(X, y_true, w1,w2, b):
-    y_pred = w1*X**2 + w2*X + b
+# random.seed(42)
+# num_points = 10000
+# X_all = []
+# y_all = []
+#
+# for _ in range(num_points):
+#     x_i = random.uniform(-5.0, 5.0)
+#     # Истинная формула: y = 2x^2 + 1x - 2 + шум
+#     y_i = 2 * (x_i**2) + 1 * x_i - 2 + random.uniform(-1, 1)
+#     X_all.append(x_i)
+#     y_all.append(y_i)
+# X_train_list, X_test_list, y_train_list, y_test_list = train_test_split(X_all, y_all)
+# X_train = np.array(X_train_list)
+# X_test = np.array(X_test_list)
+# y_train = np.array(y_train_list)
+# y_test = np.array(y_test_list)
+def calculate_mse(X1, X2, y_true, w1,w2, b):
+    y_pred = w1 * X1 + w2 * X2 + b
     return np.mean((y_pred - y_true) ** 2)
 
-def get_gradients(X, y_true, w1,w2,b):
-    y_pred = w1 * (X**2) + w2*X + b
+def get_gradients(X1, X2, y_true, w1,w2,b):
+    y_pred = w1 * X1 + w2 * X2 + b
     error_diff = y_pred - y_true
-    grad_w1 = 2 * np.mean((X**2) * error_diff)
-    grad_w2 = 2 * np.mean(X * error_diff)
-    grad_b = 2* np.mean(error_diff)
+    grad_w1 = 2 * np.mean(X1 * error_diff)
+    grad_w2 = 2 * np.mean(X2 * error_diff)
+    grad_b = 2 * np.mean(error_diff)
 
     return grad_w1, grad_w2, grad_b
 
@@ -64,7 +63,7 @@ def gradient_descent(X, y_true, learning_rate, steps, tolerance=1e-9):
         w1, w2, b = w1_new, w2_new, b_new
 
     return w1, w2, b, history
-
+X1 = []
 learning_rate = 0.0001
 steps = 100000
 w1, w2, b, error_history = gradient_descent(X_train, y_train, learning_rate, steps)
