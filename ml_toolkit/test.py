@@ -23,6 +23,8 @@ for _ in range(num_points):
     X.append([height,weight])
     y.append(label)
 
+def accuracy(y_true, y_pred):
+    return np.mean(y_true == y_pred)
 def normalize_column(values):
     min_value = min(values)
     max_value = max(values)
@@ -40,6 +42,12 @@ X_test = np.array(X_test_list)
 y_train = np.array(y_train_list)
 y_test = np.array(y_test_list)
 
+def predict(X, w1, w2, b):
+    X1, X2 = X[:, 0], X[:, 1]
+    z = w1 * X1 + w2 * X2 + b
+    probabilities = 1 / (1 + np.exp(-z))
+    predictions = (probabilities >= 0.5).astype(int)
+    return predictions
 def calculate_log_loss(X, y_true, w1, w2, b):
     X1, X2 = X[:, 0], X[:, 1]
     z = w1 * X1 + w2 * X2 + b
@@ -90,15 +98,18 @@ learning_rate = 0.1
 steps = 20000
 w1, w2, b, error_history = gradient_descent(X_train, y_train, learning_rate, steps)
 
+y_train_pred = predict(X_train, w1, w2, b)
+y_test_pred = predict(X_test, w1, w2, b)
 
 train_loss = calculate_log_loss(X_train, y_train, w1, w2, b)
 test_loss = calculate_log_loss(X_test, y_test, w1, w2, b)
-
 print("\n--- Найденные коэффициенты ---")
 print(f"w1 (рост) = {w1:.4f}, w2 (вес) = {w2:.4f}, b = {b:.4f}")
 print("--- Оценка качества модели ---")
 print(f"Log-Loss на Train: {train_loss:.4f}")
 print(f"Log-Loss на Test:  {test_loss:.4f}")
+print(f"Train Accuracy: {accuracy(y_train, y_train_pred) * 100:.2f}%")
+print(f"Test Accuracy: {accuracy(y_test, y_test_pred) * 100:.2f}%")
 
 
 plt.figure(figsize=(10, 6))
